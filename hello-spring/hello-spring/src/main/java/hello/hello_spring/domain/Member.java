@@ -16,9 +16,14 @@ package hello.hello_spring.domain;
 //MemberRepository :인터페이스
 //MemoryMemberRepository : 구현체
 
-public class Member {
+import jakarta.persistence.*;
 
+@Entity // jpa 사용하기위한 매핑
+public class Member {
+                        // autoincrement에 대한 설정
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
 
     public String getName() {
